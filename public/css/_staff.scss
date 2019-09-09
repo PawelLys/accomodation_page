@@ -1,0 +1,229 @@
+.staff {
+    background-image: linear-gradient(to bottom, rgb(34, 118, 173), rgb(163, 214, 230));
+    color: rgb(0, 0, 0);
+    padding-top: 8rem;
+    font-size: 2rem;
+    display: flex;
+    flex-direction: column-reverse;
+
+    &-board {
+        width: 100%;
+        height: calc(100vh - 8rem);
+        position: relative;
+        overflow: hidden;
+
+        &_ceo {
+            position: absolute;
+            left: 0;
+            width: 50%;
+            height: 100%;
+            display: grid;
+            grid-template-columns: 40% 60%;
+            grid-template-rows: 1fr 1fr 3fr;
+            padding-right: 1.5rem;
+
+            &-name {
+                align-items: flex-end;
+                justify-content: center;
+            }
+
+            &-title {
+                justify-content: center;
+            }
+
+            &-description {
+                justify-content: center;
+            }
+
+            & img {
+                max-width: 200%;
+            }
+        }
+
+        &_ceo-vice {
+            position: absolute;
+            right: 0;
+            width: 50%;
+            height: 100%;
+            display: grid;
+            grid-template-columns: 70% 30%;
+            grid-template-rows: 1fr 1fr 3fr;
+            padding-left: 1.5rem;
+            padding-right: 3rem;
+            overflow: hidden;
+            position: absolute;
+
+            &-name {
+                align-items: flex-end;
+                justify-content: center;
+                width: 100%;
+                max-width: 200%;
+            }
+            &-title {
+                justify-content: center;
+            }
+
+            &-description {
+                justify-content: center;
+            }
+
+            & img {
+                position: relative;
+                left: -10rem;
+                max-width: 400%;
+            }
+        }
+
+        & .ceo-name {
+            color: #fff;
+            font-size: 2.5rem;
+            display: flex;
+        }
+
+        & .ceo-title {
+            color: rgb(201, 201, 201);
+            font-size: 1.6rem;
+            display: flex;
+        }
+
+        & .ceo-description {
+            color: rgb(236, 236, 236);
+            font-size: 1.4rem;
+            width: 60%;
+            margin: 0 20%;
+            text-align: center;
+            transition: opacity .4s;
+            display: flex;
+        }
+
+        & img {
+            width: calc((100vh - 8rem)*.66) ;
+            height: 100%;
+            grid-row: span 3;
+        }
+
+        .hovered {
+            opacity: 1;
+        }
+
+        .not_hovered {
+            opacity: 0.5;
+        }
+    }
+}
+
+.mobile_staff {
+    @extend .staff;
+    padding-top: 4rem;
+    flex-direction: column;
+    background-image: linear-gradient(to bottom, rgb(34, 118, 173), rgb(115, 186, 207));
+
+    &-ceo {
+        display: flex;
+        height: auto;
+        color: #fff;
+        overflow: hidden;
+
+        & img {
+                height: calc(100vh - 2.3rem);
+        }
+
+        &-info {
+            display: flex;
+            flex-direction: column;
+            font-size: 2rem;
+
+            &-name {
+                padding: 6rem 4rem 0 4rem;
+                text-align: center;
+                font-size: 3rem;
+                font-weight: 600;
+            }
+
+            &-title {
+                padding: 0 4rem 2rem 4rem;
+                text-align: center;
+                color: rgb(216, 216, 216);
+                font-size: 1.8rem;
+            }
+
+            &-description {
+                padding-top: 4rem;
+                width: 90%;
+                margin-left: 5%;
+                text-align: center;
+            }
+        }
+    }
+}
+
+@media only screen and (max-width: 1024px) and (min-height: 1024px) {
+    .mobile_staff-ceo img {
+        height: 46vh;
+    }
+}
+
+@media only screen and (max-width: 800px) {
+    .mobile_staff-ceo img {
+        height: 60vh;
+    }
+}
+
+@media only screen and (max-width: 700px) {
+    .mobile_staff-ceo img {
+        height: 60vh;
+    }
+
+    .mobile_staff-ceo-info-description {
+        font-size: 1.6rem;
+    }
+}
+
+@media only screen and (max-width: 530px) {
+    .mobile_staff-ceo img {
+        height: 50vh;
+    }
+
+    .mobile_staff-ceo-info {
+        &-name {
+            font-size: 2.3rem;
+            padding: 4rem 3rem 0 2rem;
+        }
+
+        &-title {
+            font-size: 1.4rem;
+            padding: 0 3rem 1rem 2rem;
+        }
+
+        &-description {
+            padding-top: 2rem;
+            font-size: 1.5rem;
+        }
+    }
+}
+
+@media only screen and (max-width: 450px) {
+    .mobile_staff-ceo img {
+        margin-left: -5rem;
+        height: 45vh;
+    }
+
+    .mobile_staff-ceo:last-of-type img {
+        margin-right: -5rem;
+        height: 45vh;
+    }
+
+    .mobile_staff-ceo-info {
+        &-name {
+            font-size: 2.3rem;
+        }
+
+        &-title {
+            font-size: 1.4rem;
+        }
+
+        &-description {
+            padding-top: 2rem;
+        }
+    }
+}

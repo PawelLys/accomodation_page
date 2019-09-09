@@ -1,0 +1,174 @@
+.contact {
+    background: linear-gradient(170deg, #00405e 0, #0096db 42%, #fff 42%, #fff 80%, 
+    #0096db 80%, #51c8ff 100%);
+    position: relative;
+    background-repeat: repeat-y;
+
+    &-bgsecondary {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 30vw;
+        height: 70vh;
+        background: linear-gradient(170deg, rgba(0, 0, 0, 0) 69%, #0096db2f 69%, #0096db34 81%, 
+        rgba(0, 0, 0, 0) 81%);
+    }
+
+    &-bgtertiary {
+        position: absolute;
+        bottom: 0;
+        right: 0;
+        width: 30vw;
+        height: 70vh;
+        background: linear-gradient(170deg, rgba(0, 0, 0, 0) 57%, #0096db34 57%, #0096db34 68%, 
+        rgba(0, 0, 0, 0) 68%);
+    }
+
+    &-elements {
+        color: #fff;
+        font-size: 2rem;
+        display: grid;
+        padding-top: 8rem;
+        max-width: 70rem;
+        height: 60rem;
+        margin: 0 auto;
+        grid-template-columns: 1fr 1fr 1fr;
+        grid-template-rows: 1fr 4fr;
+        row-gap: 2rem;
+        justify-items: center;
+        position: relative;
+
+        &-title {
+            align-self: center;
+            grid-column: span 3;
+            font-size: 3.5rem;
+            font-weight: 600;
+
+            &::after {
+                height: 1rem;
+                display: block;
+                width: 10rem;
+                margin: 0 auto;
+                border-bottom: 2.5px solid rgb(255, 255, 0);
+                content: '';
+            }
+        }
+
+        &-context {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            background-color: rgba(255, 255, 255, 0.253);
+            
+            &-ocupation {
+                padding-top: 2rem;
+                font-weight: 600;
+                text-transform: capitalize;
+                letter-spacing: 1px;
+                word-spacing: 3px;
+
+
+                &::after {
+                    height: 1rem;
+                    display: block;
+                    width: 5rem;
+                    margin: 0 auto;
+                    border-top: 2px solid rgb(226, 226, 0);
+                    content: '';
+                }
+            }
+
+            & img {
+                margin-top: 1rem;
+                width: 10rem;
+                height: 10rem;
+                border-radius: 50%;
+            }
+
+            & p {
+                color: #000;
+                width: 90%;
+                margin: 0 5%;
+                font-size: 1.5rem;
+                text-align: center;
+                padding: 1.7rem 0;
+
+                &::before {
+                    height: 1rem;
+                    display: block;
+                    width: 5rem;
+                    margin: 0 auto;
+                    border-top: 1.5px solid rgb(141, 141, 0);
+                    content: '';
+                }
+
+                &::after {
+                    height: 1rem;
+                    display: block;
+                    width: 5rem;
+                    margin: 0 auto;
+                    border-bottom: 1.5px solid rgb(182, 182, 26);
+                    content: '';
+                }
+            }
+
+            &_number {
+                padding: 1rem 3rem;
+                color: #fff;
+                background-color: #006594;
+                transition: all .3s;
+
+                &:hover {
+                    background-color: #0088c7;
+                    cursor: pointer;
+                    padding: 1.1rem 3.1rem;
+                    font-size: 2.1rem;
+                }
+
+                &-showed {
+                    padding: 1rem 3rem;
+                    background-color: #ffffff10;
+                    color: #000;
+                    letter-spacing: 1px;
+                    font-family:    Helvetica, sans-serif;
+                }
+            }
+        }
+
+        &-context:last-of-type {
+            @extend .contact-elements-context;
+            color: #000;
+        }
+
+        &-container {
+            background-color: rgba(0, 0, 0, 0);
+            position: absolute;
+            width: 100%;
+            height: 40rem;
+            bottom: 0;
+            border-radius: 4px;
+            border: 1px solid rgba(50,50,93,.25);
+            box-shadow: 0 50px 100px -20px rgba(50,50,93,.25), 
+                0 30px 60px -30px rgba(0,0,0,.3), 
+                0 -18px 60px -10px rgba(0,0,0,.025);
+        }
+    }
+}
+
+@media only screen and (max-width: 665px) {
+    .contact-elements {
+        grid-template-columns: 1fr;
+        grid-template-rows: 1fr 1fr 1fr 1fr;
+        height: auto;
+
+        &-title { grid-column: span 1; }
+
+        &-container { display: none; }
+
+        &-context {
+            border-radius: 4px;
+            border: 1px solid rgba(50, 50, 93, 0.25);
+            background-color: rgba(255, 255, 255, 0.253);
+        }
+    }
+}

@@ -1,0 +1,283 @@
+
+.main {
+    background-image: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)), url("img/main-background.jpg");
+    background-color: rgb(94, 94, 94);
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    color: #fff;
+    text-align: center;
+    padding-top: 8rem;
+
+    &-title {
+        font-size: 5rem;
+        font-weight: 600;
+        letter-spacing: .1rem;
+        word-spacing: .4rem;
+        transition: all .5s;
+    }
+
+    &-description {
+        width: 80%;
+        margin-top: 4rem;
+        font-size: 2rem;
+        font-weight: 400;
+    }
+
+    & ion-icon {
+        width: 100%;
+        position: absolute;
+        bottom: 0;
+        border-top: .1rem solid transparent;
+        padding: 1rem 0;
+        font-size: 4rem;
+        transition: all .3s;
+        color: rgb(201, 201, 201);
+    
+        &:hover {
+            background-color: rgba(0, 0, 0, 0.562);
+            border-top: .1rem solid rgb(49, 49, 49);
+            font-size: 4.4rem;
+            cursor: pointer;
+            color: rgb(255, 255, 255);
+        }
+    }
+}
+
+.submain {
+    background-color: rgb(236, 236, 236);
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    color: #000;
+    text-align: center;
+    padding-top: 6rem;
+
+    &-title {
+        width: 95%;
+        text-transform: uppercase;
+        color: rgb(14, 102, 143);
+        font-size: 3rem;
+        font-weight: 600;
+        letter-spacing: .1rem;
+        word-spacing: .4rem;
+
+        &::after {
+            content: "";
+            display: block;
+            height: 1rem;
+            width: 20vw;
+            margin: 0 auto;
+            border-bottom: 1px solid rgb(0, 140, 255);
+        }
+    }
+
+    &-description {
+        margin-top: 4rem;
+        width: 90%;
+        display: grid;
+        grid-template-columns: 1fr 1fr 1fr;
+        grid-column-gap: 2rem;
+
+        &_item {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            width: 100%;
+            font-size: 2rem;
+
+            & img {
+                width: 100%;
+                height: 25rem;
+                margin-bottom: 2rem;
+            }
+        }
+    }
+}
+
+.rooming {
+    display: grid;
+    grid-template-columns: 3fr 2fr 2fr;
+    grid-template-rows: 50vh 50vh;
+    background-color: #000;
+
+    & a {
+        width: 100%;
+        height: 100%;
+        position: relative;
+
+        & img {
+            width: 100%;
+            height: 100%;
+            opacity: .8;
+            margin: 0;
+            transition: opacity .3s;
+        
+            &:hover { opacity: .5; }
+        }
+
+        & .photo-description {
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+            width: 100%;
+            pointer-events: none;
+            
+            & p {
+                font-size: 3.7rem;
+                text-align: center;
+                color: #fff;
+                text-transform: uppercase;
+            }
+        }
+        
+
+        & .more-info-btn {
+            @extend .photo-description;
+            
+            & p button {
+                text-decoration: none;
+                background-color: rgb(34, 174, 255);
+                border: none;
+                color: #fff;
+                padding: 2rem 4rem;
+                font-size: 3rem;
+            }
+        }
+    }
+    
+    & .house-for-2 {
+        grid-column: 3;
+        grid-row: span 2;
+    }
+}
+
+/******** Media Queries ********/
+
+@media only screen and (max-width: 1024px) {
+    .rooming {
+        grid-template-columns: 1fr 1fr;
+
+        & .house-for-2 {
+            grid-column: 1;
+            grid-row: span 2;
+        }
+    }
+}
+
+@media only screen and (max-width: 985px) {
+    .submain-description {
+        grid-template-columns: 1fr 1fr;
+        overflow: hidden;
+    }
+
+    .submain-description_item:last-of-type {
+        margin: 2rem 0 2rem 25vw;
+
+        &::before {
+            height: 1rem;
+            display: block;
+            width: 10rem;
+            margin: 0 auto 1rem auto;
+            border-top: 1px solid rgb(0, 140, 255);
+            content: '';
+        }
+    }
+}
+
+@media only screen and (max-width: 550px) {
+    .submain-description {
+        grid-template-columns: 1fr;
+        overflow: hidden;
+
+        &_item {
+            display: flex;
+            margin: 1rem 0;
+    
+            &::before {
+                height: 1rem;
+                display: block;
+                width: 10rem;
+                margin: 0 auto 1rem auto;
+                border-top: 1px solid rgb(0, 140, 255);
+                content: '';
+            }
+
+            &:first-of-type {
+                margin: 0;
+        
+                &::before {
+                    height: 0;
+                    width: 0;
+                    margin: 0;
+                    border-top: none;
+                    content: '';
+                }
+            }
+
+            &:last-of-type { margin: 1rem 0; }
+        }
+    }
+
+    .rooming {
+        grid-template-columns: 1fr;
+
+        & .house-for-2 {
+            grid-row: span 1;
+        }
+    }
+}
+
+@media only screen and (max-width: 1024px) and (min-height: 1366px) {
+    .main-title { font-size: 6rem; }
+    .main-description { font-size: 3rem; }
+    .main ion-icon { font-size: 6rem; }
+
+
+    .rooming {
+        grid-template-columns: 1fr;
+
+        & .house-for-2 {
+            grid-row: span 1;
+        }
+    }
+
+    .submain-description {
+        grid-template-columns: 1fr;
+        overflow: hidden;
+
+        &_item {
+            display: flex;
+            margin: 1rem 0;
+    
+            &::before {
+                height: 1rem;
+                display: block;
+                width: 10rem;
+                margin: 0 auto 1rem auto;
+                border-top: 1px solid rgb(0, 140, 255);
+                content: '';
+            }
+
+            &:first-of-type {
+                margin: 0;
+        
+                &::before {
+                    height: 0;
+                    width: 0;
+                    margin: 0;
+                    border-top: none;
+                    content: '';
+                }
+            }
+
+            &:last-of-type { margin: 1rem 0; }
+        }
+    }
+}

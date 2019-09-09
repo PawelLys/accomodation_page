@@ -1,0 +1,181 @@
+.feedback {
+  display: flex;
+  flex-direction: column;
+  background-image: linear-gradient(to left bottom, rgb(8, 79, 145), rgb(135, 169, 190));
+  color: rgb(255, 255, 255);
+
+  
+  &_aftertext {
+    height: 100vh;
+    font-size: 2.5rem;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+    
+    & p {
+      margin-top: 1rem;
+    }
+
+    & p:last-of-type {
+      font-size: 1.5rem;
+      margin-top: 5rem;
+    }
+
+    & span {
+      position: absolute;
+      bottom: 20vh;
+      font-size: 1.7rem;
+      display: flex;
+      align-items: center;
+      border-radius: 5px;
+      transition: all .3s;
+      padding: 0 .5rem;
+      
+      & ion-icon {
+        padding-right: .3rem;
+        padding-bottom: .1rem;
+      }
+
+      &:hover {
+        cursor: pointer;
+        background-color: rgb(103, 162, 218);
+        font-size: 1.75rem;
+      }
+    }
+  }
+
+  &_intro {
+    height: 16rem;
+    padding-top: 8rem;
+    font-size: 2.5rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+  }
+
+  &_form {
+    width: 100%;
+    height: 80%;
+    display: flex;
+    align-items: center;
+    
+    & .form-date {
+      width: 50%;
+      height: 100%;
+      font-size: 1.6rem;
+      display: flex;
+      flex-direction: column;
+
+      &_item {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        padding-top: 1rem;
+        position: relative;
+
+        & input {
+          font-size: 1.6rem;
+          padding-left: 2rem;
+          border-radius: 5px;
+          height: 3rem;
+          width: 30rem;
+          transition: all .3s;
+          border: none;
+        }
+
+        &-gender {
+          display: grid;
+          width: 10rem;
+          height: 5rem;
+          grid-template-columns: 1fr 4fr; 
+
+            & input {
+              width: 1.5rem;
+              height: 1.5rem;
+              margin-top: .5rem;
+              cursor: pointer;
+            }
+        }
+
+        &-phonewarning {
+          position: absolute;
+          bottom: -2.5rem;
+          width: 31rem;
+          height: 2rem;
+          color: rgb(255, 197, 197);
+          display: flex;
+          align-items: center;
+          padding-left: 1rem;
+          color:rgb(255, 222, 32);
+
+          & .iconify {
+            color: rgb(255, 217, 1);
+            font-size: 3rem;
+            padding-right: .5rem;
+          }
+        }
+      }
+    }
+
+    &-message {
+      width: 50%;
+      height: calc(100vh - 16rem);
+      font-size: 1.6rem;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+
+      & textarea {
+        width: 90%;
+        height: 65%;
+        max-height: 30rem;
+        font-size: 1.6rem;
+        padding: 1rem;
+        font-family: 'Raleway', sans-serif;
+
+        &::placeholder {
+          padding-top: 22vh;
+          text-align: center;
+        }
+      }
+    }
+
+    .red-background {
+      background-color: rgb(255, 191, 191);
+    }
+    .form-btn {
+      width: 10rem;
+      height: 3rem; 
+      font-size: 1.6rem;
+      margin-top: 2rem;
+      margin-bottom: -2rem;
+      border-radius: 1.5rem;
+      border: none;
+      color: rgb(255, 255, 255);
+      cursor: pointer;
+      transition: all .2s;
+      outline: none;
+      background-color: rgb(0, 102, 255); 
+    }
+      .form-btn:hover { 
+        transform: scale(1.02); 
+        background-color: rgb(3, 219, 154);
+      }
+      .form-btn:active { transform: translateY(0.2rem); }
+  }
+}
+
+@media only screen and (max-width: 1024px) and (min-height: 1366px) {
+  .feedback_form { align-items: start; }
+
+  .form-date_item { margin-top: 5rem; }
+}
+
+@media only screen and (max-width: 650px) {
+  .feedback_form { flex-direction: column; }
+  .feedback_form-message { width: 100%; }
+}
