@@ -1,0 +1,311 @@
+.meals {
+    background-image: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)), url("img/food.jpg"); 
+    background-size: cover;
+    background-attachment: fixed;
+    padding-top: 8rem;
+    font-size: 2rem;
+    color: #fff;
+    overflow: hidden;
+
+    &-header {
+        height: 5rem;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        width: 50%;
+        max-width: 50rem;
+        margin: 0 auto;
+
+        & input {
+            width: 30rem;
+            height: 2.5rem;
+            font-size: 1.6rem;
+            margin-right: 1rem;
+            border-radius: 10rem;
+            padding-top: .2rem;
+            padding-left: 2rem;
+            transition: all .3s; 
+
+            &:focus {
+                transform: translateY(-1px);
+                box-shadow: .1rem .1rem .5em #fff;
+                font-size: 1.62rem;
+                outline: none;  
+            }
+
+            &::placeholder { color: rgb(141, 133, 129); }
+        }
+
+        & button {
+            width: 8rem;
+            height: 2.5rem;
+            padding: 0 auto; 
+            font-size: 1.4rem;
+            border-radius: 30px;
+            border: none;
+            color: rgb(255, 255, 255);
+            cursor: pointer;
+            transition: all .2s;
+            outline: none;
+            background-image: linear-gradient(to right bottom, rgb(255, 199, 243), rgb(250, 104, 93)); 
+
+            &:hover {
+                width: 8.2rem;
+                height: 2.7rem;
+                font-size: 1.43rem;
+            }
+
+            &:active { transform: translateY(0.2rem); }
+        }
+    }
+
+    &-intro {
+        height: 40vh;
+        width: 90vw;
+        padding: 0 auto;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        text-align: center;
+    }
+
+    &-list {
+        margin: 0 2rem;
+        display: grid;
+        grid-template-columns: repeat(3, minmax(10rem, 1fr));
+        grid-template-rows: repeat(5, 9.5rem);
+        grid-gap: 1rem;
+        position: relative;
+
+        &-item {
+            display: grid;
+            grid-template-columns: 1fr 3fr;
+            column-gap: 1rem;
+            align-items: center;
+            padding: 0 1rem .5rem 1rem;
+            border-bottom: .1rem solid rgb(136, 136, 136);
+            transition: all .3s;
+
+            &:hover {
+                background-color: rgba(83, 83, 83, 0.61);
+                cursor: pointer;
+            }
+
+            &:active {
+                transform: scale(1.05);
+                background-color: rgba(134, 134, 134, 0.767);
+            }
+
+            &_photo {
+                width: 100%;
+                display: flex;
+                align-items: center;
+                pointer-events: none;
+
+                & img {
+                    width: 100%;
+                    height: 7rem;
+                }
+            }
+
+            &_title {
+                font-size: 1.65rem;
+                color: #fff;
+                pointer-events: none;
+            }
+        }
+
+        &_btn-right, &_btn-left {
+            position: absolute;
+            top: -4rem;
+            font-size: 2rem;
+            color: rgb(216, 216, 216);
+            cursor: pointer;
+            transition: all .3s;
+            display: flex;
+            align-items: center;
+        }
+        &_btn-right { 
+            right: 2rem; 
+            margin-left: .2rem;
+        }
+        &_btn-left { 
+            left: 2rem; 
+            margin-right: .2rem;
+        }
+    }
+
+    &-detail {
+        display: grid;
+        width: 90%;
+        max-width: 120rem;
+        margin: 1rem 5%;
+        grid-template-rows: 27rem 4rem auto; 
+        box-shadow: 0.1rem 0.1rem 1rem rgb(136, 136, 136);
+        background-color: rgba(128, 128, 128, 0.322);
+
+        &_photo {
+            justify-self: center;
+            align-self: center;
+            height: 95%;
+
+            & img { height: 100%; }
+        }
+
+        &_title {
+            justify-self: center;
+            align-self: center;
+            font-size: 3rem;
+            color: #fff;
+
+            &-ingridiens {
+                font-size: 2rem;
+                color: rgb(224, 224, 224);
+                margin: 2rem 0 4rem 4rem;
+                padding-left: 2rem;
+                border-left: .1rem solid #fff;
+                position: relative;
+                
+                &_btn {
+                    position: absolute;
+                    top: -4.5rem;
+                    left: 0;
+                    width: 8.5rem;
+                    display: flex;
+                    justify-content: center;
+                    align-items: center;
+                    font-size: 2rem;
+                    color: rgb(172, 191, 255);
+                    cursor: pointer;
+                    transition: all .3s;
+                }
+            }
+        }
+    }
+
+    .meals-list_btn-right, .meals-list_btn-left, .meals-detail_title-ingridiens_btn {
+        color: rgb(207, 225, 245);
+    }
+
+    .meals-list_btn-right:hover, .meals-list_btn-left:hover, 
+    .meals-detail_title-ingridiens_btn:hover { transform: scale(1.05); }
+
+    .meals-list_btn-right:active, .meals-list_btn-left:active, 
+    .meals-detail_title-ingridiens_btn:active { transform: translateY(0.2rem); }
+
+    .loader {
+        border: .5rem solid #f3f3f3;
+        border-radius: 50%;
+        border-top: .5rem solid #3498db;
+        width: 8rem;
+        height: 8rem;
+        -webkit-animation: spin 2s linear infinite;
+        animation: spin 2s linear infinite;
+      }
+      
+      @-webkit-keyframes spin {
+        0% { -webkit-transform: rotate(0deg); }
+        100% { -webkit-transform: rotate(360deg); }
+      }
+      
+      @keyframes spin {
+        0% { transform: rotate(0deg); }
+        100% { transform: rotate(360deg); }
+      } 
+}
+
+  
+
+
+/*********************************/
+/**   Media for Recipe app      **/
+/********************************/
+
+@media only screen and (max-width: 1024px) and (min-height: 1366px) {
+    .meals-list { 
+        grid-template-columns: 1fr 1fr;
+        grid-template-rows: repeat(8, auto);
+        margin-top: 1rem;
+    }
+
+    .meals-header input {
+        width: 40rem;
+        height: 4rem;
+        font-size: 2.5rem;
+        margin-right: 1rem;
+        border-radius: 10rem;
+        padding-top: .4rem;
+        padding-left: 4rem;
+
+        &:focus {
+            font-size: 2.52rem;
+        }
+    }
+    .meals-header button {
+        width: 12rem;
+        height: 3.5rem;
+        font-size: 2rem;
+
+        &:hover {
+            width: 12rem;
+            height: 3.5rem;
+            font-size: 2.3rem;
+        }
+    }
+    .meals-list-item_title { font-size: 2rem; }
+
+    .meals-detail {
+        row-gap: 1rem;
+        &_photo { height: 100%; }
+        &_title { 
+            font-size: 4rem; 
+        &-ingridiens { 
+            font-size: 3rem; 
+            &_btn { 
+                top: -6rem; 
+                width: auto;
+                font-size: 2.5rem;
+            }
+        }
+        }
+    }
+}
+
+    @media only screen and (max-width: 940px) {
+      .meals-list { 
+        grid-template-columns: 1fr 1fr;
+        grid-template-rows: repeat(8, auto);
+       }
+    }
+
+    @media only screen and (max-width: 768px) {
+        .meals-list_btn-right, .meals .meals-list_btn-left { 
+            font-size: 0;
+
+            & ion-icon {
+                font-size: 4rem;
+            }
+        } 
+        
+        .meals-detail_title-ingridiens_bt { top: -8rem; }
+    }
+
+    @media only screen and (max-width: 520px) {
+        .meals-header {
+            & input {
+                width: 17rem;
+            }
+        }
+        .meals-list { 
+            grid-template-columns: 1fr;
+            grid-template-rows: repeat(15, auto);
+        }
+        .meals-detail_photo { height: 75%; }
+        .meals-detail_title-ingridiens { margin: 1rem 0 2rem 2rem; }
+        .meals-list_btn-right, .meals .meals-list_btn-left { top: -5rem; }
+        .meals-list_btn-right { right: -1rem; }
+        .meals .meals-list_btn-left { left: -1rem; }
+        .meals-detail_title-ingridiens_btn { top: -8rem; }
+    }
+
+    

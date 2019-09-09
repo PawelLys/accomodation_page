@@ -1,0 +1,350 @@
+%positioningInDisplay {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+.offer {
+    background-image: linear-gradient(to bottom, rgb(163, 214, 230), rgb(221, 231, 235));
+    padding: 10rem 3rem 0 3rem;
+    display: flex;
+    flex-direction: column;
+    position: relative;
+    overflow: hidden;
+
+    &-title {
+        font-size: 4rem;
+        color: rgb(21, 76, 112);
+        text-transform: uppercase;
+        letter-spacing: .1rem;
+        word-spacing: .3rem;
+        text-align: center;
+    }
+
+    &-room {
+        display: flex;
+        flex: 1;
+        width: 200rem;
+        position: absolute;
+        bottom: 3.5rem;
+        left: 50%;
+        margin-left: -20rem;
+        transition: all .3s;
+
+        &-display {
+            width: 40rem;
+            height: 45rem;
+            margin-top: 2rem;
+            border: .1rem solid rgb(192, 228, 236);
+            box-shadow: 0 0 1.5rem .5rem rgb(210, 231, 236);
+            background-color: rgb(232, 238, 240);
+            display: grid;
+            grid-template-columns: 50% 50%;
+            grid-template-rows: 25rem 10rem 10rem;
+            align-items: center;
+            justify-items: center;
+            transition: all .3s;
+
+            &-photo {
+                width: 30rem;
+                height: 20rem;
+                grid-column: span 2;
+            }
+
+            &-meters {
+                @extend %positioningInDisplay;
+                font-size: 2rem;
+
+                & span {
+                    font-size: 2.4rem;
+                    font-weight: 600;
+                }
+            }
+
+            &-persons {
+                @extend %positioningInDisplay;
+                font-size: 2rem;
+                
+                & span {
+                    display: flex;
+                    align-items: center;
+                    font-weight: 600;
+                    font-size: 2.4rem;
+
+                    & ion-icon { margin-left: .5rem; }
+                }
+            }
+
+            &-details {
+                grid-column: span 2;
+                text-decoration: none;
+                background-color: rgb(34, 174, 255);
+                border: none;
+                color: #fff;
+                padding: 1rem 2rem;
+                font-size: 2rem;
+                opacity: 0;
+                visibility: hidden;
+                transition: all .3s;
+
+                &:hover {
+                    padding: 1.2rem 2.2rem;
+                    font-size: 2.2rem;
+                    background-color: rgb(93, 196, 255);
+                    cursor: pointer;
+                }
+            }
+
+            & .details-active {
+                opacity: 1;
+                visibility: visible;
+            }
+        }
+    }
+
+    &-slider-left {
+        position: absolute;
+        left: -5rem;
+        bottom: 30%;
+        z-index: 2;
+        background-color: #fff;
+        width: 10rem;
+        height: 10rem;
+        border-radius: 50%;
+        display: flex;
+        justify-content: flex-end;
+        padding-right: 1rem;
+        align-items: center;
+        opacity: .8;
+        transform: translateX(-15%);
+        transition: all .3s;
+        cursor: pointer;
+
+        & .iconify {
+            width: 4rem;
+            height: 4rem;
+            color: rgb(102, 167, 187);
+            opacity: 0;
+            transition: inherit;
+        }
+    }
+    
+    &-slider-right {
+        position: absolute;
+        right: -5rem;
+        bottom: 30%;
+        z-index: 2;
+        background-color: #fff;
+        width: 10rem;
+        height: 10rem;
+        border-radius: 50%;
+        display: flex;
+        padding-left: 1rem;
+        align-items: center;
+        opacity: .7;
+        transform: translateX(15%);
+        transition: all .3s;
+        cursor: pointer;
+
+        & .iconify {
+            width: 4rem;
+            height: 4rem;
+            color: rgb(102, 167, 187);
+            opacity: 0;
+            transition: inherit;
+        }
+    }
+
+    .slider-left-active, .slider-right-active  {
+        opacity: .9;
+        transform: translateX(0);
+
+        & .iconify {
+            opacity: 1;
+        }
+    }
+
+    &-present {
+        display: grid;
+        grid-template-columns: 1fr 2fr;
+        grid-template-rows: 10rem auto 15rem;
+        align-items: center;
+        position: relative;
+
+        &-link {
+            position: absolute;
+            width: 19rem;
+            height: 4rem;
+            top: -1.5rem;
+            left: 13%;
+            transform: translateY(13%);
+            display: flex;
+            font-size: 2rem;
+            align-items: center;
+            justify-content: center;
+            transition: all .3s;
+            border-radius: 5px;
+            background-color: rgb(65, 185, 255);
+            color: #fff;
+            z-index: 4;
+
+            &:hover {
+                background-color: rgb(96, 197, 255);
+                scale: (1.03);
+            }
+        }
+
+        &-nav {
+            position: absolute;
+            width: 30rem;
+            height: 5rem;
+            top: -2rem;
+            right: -5rem;
+            display: flex;
+            font-size: 4rem;
+            justify-content: space-evenly;
+            align-items: center;
+            transition: all .3s;
+
+            &-left, &-right, &-close {
+                width: 4rem;
+                height: 4rem;
+                border-radius: 50%;
+                display: grid;
+                align-items: center;
+                justify-items: center;
+                background-color: rgb(96, 156, 235);
+                transition: all .3s;
+            }
+
+            &-left { & ion-icon { transform: translateX(-3%); }}
+
+            &-right { & ion-icon { transform: translateX(3%); }}
+
+            &-left, &-right {
+                & ion-icon { color: rgb(190, 234, 255); }
+
+                &:hover {
+                    background-color: rgb(129, 183, 255);
+                    transform: scale(1.04);
+                    cursor: pointer;
+                    & ion-icon { color: rgb(52, 143, 185); }
+                }
+            }
+
+            &-close { 
+                & ion-icon {
+                    transform: translateX(2%); 
+                    color: rgb(250, 168, 157);
+                } 
+
+                &:hover {
+                    background-color: rgb(129, 183, 255);
+                    transform: scale(1.04);
+                    cursor: pointer;
+                    & ion-icon { color: rgb(255, 96, 75); }
+                }
+            }
+        }
+
+        & img {
+            grid-row: span 3;
+            width: 40vw;
+            height: 23vw;
+        }
+
+        &-title {
+            text-transform: uppercase;
+            font-size: 3rem;
+            word-spacing: .4rem;
+            letter-spacing: .2rem;
+            padding-left: 10%;
+        }
+
+        &-contains {
+            padding-left: 15%;
+            font-size: 2rem;
+        }
+
+        &-description {
+            font-size: 2rem;
+            width: 90%;
+            justify-self: center;
+        }
+    }
+}
+
+@media only screen and (max-width: 1024px) and (min-height: 1024px) {
+    .offer-title { display: none; }
+    html {
+        font-size: 75%;
+    }
+
+    .offer-room {
+        bottom: 50%;
+        margin-bottom: -25rem;
+    }
+
+    .offer-slider-right, .offer-slider-left { 
+        bottom: 50%; 
+        transform: translateY(-50%);
+    }
+}
+
+@media only screen and (max-width: 1024px) {
+    .offer-title { display: none; }
+
+    .offer-present-title {
+        text-align: center; 
+        padding-left: 0;
+     }
+
+    .offer-present-contains {
+        padding-left: 0;
+    }
+
+    .offer-present { 
+        grid-template-columns: 1fr; 
+        row-gap: 1rem;
+        justify-items: center;
+        padding-top: 5rem;
+
+        & img {
+            width: 40rem;
+            height: 25rem;
+        }
+    }
+
+    .offer-room {
+        bottom: 50%;
+        margin-bottom: -25rem;
+    }
+
+    .offer-slider-right, .offer-slider-left { 
+        bottom: 50%; 
+        transform: translateY(-50%);
+    }
+}
+
+@media only screen and (max-width: 500px) {
+    .offer-present { 
+        padding-top: 10rem;
+
+        & img {
+            width: 30rem;
+            height: 20rem;
+        }
+
+        &-link {
+            top: 5rem;
+            left: 50%;
+            margin-left: -10rem;
+        }
+
+        &-nav {
+            right: 0;
+            width: 100%;    
+        }
+    }
+}
